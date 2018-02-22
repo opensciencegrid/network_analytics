@@ -5,7 +5,7 @@ LABEL maintainer Ilija Vukotic <ivukotic@cern.ch>
 # adding apache and neo4j
 
 RUN wget -O - https://debian.neo4j.org/neotechnology.gpg.key | apt-key add -
-RUN echo 'deb https://debian.neo4j.org/repo stable/' | tee /etc/apt/sources.list.d/neo4j.list
+RUN echo 'deb https://debian.neo4j.org/repo/stable/' | tee /etc/apt/sources.list.d/neo4j.list
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
