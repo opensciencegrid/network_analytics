@@ -12,7 +12,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 
 RUN apt-get install -y --allow-unauthenticated \
     apache2 \
-    neo4j
+    neo4j \
+    nodejs \
+    npm
 
 ##############################
 # Python 2 packages
