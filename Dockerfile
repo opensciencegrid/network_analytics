@@ -5,11 +5,12 @@ LABEL maintainer Ilija Vukotic <ivukotic@cern.ch>
 # adding apache and neo4j
 
 RUN wget -O - https://debian.neo4j.org/neotechnology.gpg.key | apt-key add -
-RUN echo 'deb https://debian.neo4j.org/repo/stable/' | tee /etc/apt/sources.list.d/neo4j.list
+RUN echo 'deb https://debian.neo4j.org/repo stable/' | tee -a /etc/apt/sources.list.d/neo4j.list
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
-    apt-get update && \
-    apt-get install -y --allow-unauthenticated \
+    apt-get update
+
+RUN apt-get install -y --allow-unauthenticated \
     apache2 \
     neo4j
 
