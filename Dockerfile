@@ -7,7 +7,7 @@ LABEL maintainer Ilija Vukotic <ivukotic@cern.ch>
 RUN wget -O - http://debian.neo4j.org/neotechnology.gpg.key | apt-key add -
 RUN echo 'deb http://debian.neo4j.org/repo stable/' | tee -a /etc/apt/sources.list.d/neo4j.list
 
-RUN export DEBIAN_FRONTEND=noninteractive \
+RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update
 
 RUN apt-get install -y --allow-unauthenticated \
