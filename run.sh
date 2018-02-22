@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /environment
+. /environment.sh
 
 echo $PATH
 
