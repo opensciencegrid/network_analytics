@@ -38,7 +38,9 @@ RUN pip2 --no-cache-dir install \
         gym \
         graphviz \
         JSAnimation \
-        Cython
+        Cython \
+        neo4j-driver
+
 RUN python2 -m ipykernel.kernelspec
 
 #############################
@@ -67,8 +69,13 @@ RUN pip3 --no-cache-dir install \
         graphviz \
         JSAnimation \
         ipywidgets \
-        Cython
+        Cython \
+        neo4j-driver
+
 RUN python3 -m ipykernel.kernelspec
+
+# install neo4j javascript driver
+RUN npm install neo4j-driver@1.5.0
 
 # build info
 RUN echo "Timestamp:" `date --utc` | tee /image-build-info.txt
