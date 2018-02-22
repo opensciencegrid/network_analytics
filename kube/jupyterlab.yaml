@@ -1,0 +1,45 @@
+kind: Service
+apiVersion: v1
+metadata:
+  labels:
+    k8s-app: jupyter-lab
+  name: jupyter-lab-service
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 9999
+  selector:
+    k8s-app: jupyter-lab
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jupyter-lab-runner
+  labels:
+    k8s-app: jupyter-lab
+spec:
+  restartPolicy: Always
+  containers:
+    - image: opensciencegrid/netwok_analytics:latest
+      name: ml
+      #args: [ "/.run", "sleep", "36060000"]    
+      args: ["/run.sh", "jupyter", "lab", "--allow-root"]        
+      # resources: 
+        # limits: 
+          # alpha.kubernetes.io/nvidia-gpu: 1 # requesting 1 GPU
+  #     ports:
+  #       - containerPort: 9999
+  #     volumeMounts:
+  #     - name: dr-persistent-storage
+  #       mountPath: /data/
+  #     - name: nvidia-driver
+  #       mountPath: /host-libs
+  #       readOnly: true
+  # volumes:
+  # - name: persistent-storage
+  #   persistentVolumeClaim:
+  #     claimName: pv-claim
+  # - name: nvidia-driver
+  #   hostPath:
+  #     path: /var/lib/nvidia-docker/volumes/nvidia_driver/384.90/lib64

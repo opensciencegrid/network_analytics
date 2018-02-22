@@ -5,6 +5,6 @@ metadata:
 spec:
   containers:
   - name: network-analytics-base
-    image: ivukotic/netwok_analytics:latest
+    image: opensciencegrid/netwok_analytics:latest
     command: ["sleep"]
     args: ["36500000"]
