@@ -21,7 +21,7 @@ metadata:
 spec:
   restartPolicy: Always
   containers:
-    - image: opensciencegrid/netwok_analytics:latest
+    - image: opensciencegrid/network_analytics:latest
       name: ml
       #args: [ "/.run", "sleep", "36060000"]    
       args: ["/run.sh", "jupyter", "lab", "--allow-root"]        
